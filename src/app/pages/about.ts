@@ -36,7 +36,7 @@ import { SeoService } from '../services/seo';
       Website do một lập trình viên tại Việt Nam vận hành (bút danh habeo).
     </p>
     <ul>
-      <li>GitHub: <a href="https://github.com/sonhadev" target="_blank" rel="noopener noreferrer">github.com/sonhadev</a></li>
+      <li>GitHub: <a href="https://github.com/hadsdev" target="_blank" rel="noopener noreferrer">github.com/hadsdev</a></li>
       <li>Mọi góp ý, phản hồi về nội dung hoặc đề xuất chủ đề mới đều được hoan nghênh.</li>
     </ul>
 

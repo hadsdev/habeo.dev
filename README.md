@@ -1,59 +1,51 @@
-# Habeo
+# habeo.dev — Hiểu AI. Dùng đúng. Xây được.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.6.
+Nền tảng học và tra cứu kiến thức AI coding thực chiến bằng tiếng Việt dành cho lập trình viên. Miễn phí, không tài khoản, tập trung vào thực hành có kiểm chứng.
 
-## Development server
+## Lộ trình học chính
+1. **Model và ngữ cảnh**: Cửa sổ ngữ cảnh, token, cutoff date.
+2. **An toàn dữ liệu**: Phân loại dữ liệu trước khi gửi cho model.
+3. **Quy trình AI coding**: Đặc tả → spec → kế hoạch → TDD → verify.
+4. **Project instructions & Skills**: Cấu trúc AGENTS.md / CLAUDE.md và đóng gói quy trình tái sử dụng.
+5. **Tool calling & MCP**: Kết nối model với thế giới bên ngoài an toàn.
+6. **Agent harness & Evals**: Đo lường và kiểm soát agent trong thực tế.
 
-To start a local development server, run:
+## Kỹ thuật
+- **Framework**: Angular 22 standalone + SSR/Prerender (SSG).
+- **Styling**: Tối giản, hỗ trợ Dark / Light mode tự động hoặc theo lựa chọn người dùng.
+- **Content pipeline**: Markdown + frontmatter validation + syntax highlighting (`highlight.js`) + DOMPurify sanitize.
+- **Search**: Tìm kiếm toàn văn local hỗ trợ tiếng Việt có dấu và không dấu.
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Phát triển tại local
 
 ```bash
-ng generate --help
+# Cài đặt dependency
+npm install
+
+# Build static content và chạy server phát triển
+npm start
 ```
 
-## Building
+Mở trình duyệt tại `http://localhost:4200/`.
 
-To build the project run:
+## Build production
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Toàn bộ 14 routes sẽ được prerender thành các file HTML tĩnh tại thư mục `dist/habeo/browser`.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Kiểm thử
 
 ```bash
-ng test
+# Unit test pipeline xử lý nội dung
+npm run test:tools # hoặc npx vitest run --dir tools
+
+# Unit test Angular services
+npm test -- --watch=false
+
+# E2E smoke tests (Playwright)
+npx playwright test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
