@@ -1,0 +1,68 @@
+@if (item(); as it) {
+  <div class="article-grid">
+    <article class="article">
+      <p class="crumb">
+        <a [routerLink]="listHref(it.type)">
+          {{ listLabel(it.type) }}
+        </a>
+        / {{ it.title }}
+      </p>
+      <h1>{{ it.title }}</h1>
+      <p class="meta-row">
+        <span class="badge" [class.ok]="it.verified">{{
+          it.verified ? 'Đã kiểm thử' : 'Chưa kiểm chứng'
+        }}</span>
+        <span>Cập nhật {{ it.updated }}</span>
+      </p>
+
+      <div class="prose" [innerHTML]="safeHtml()"></div>
+
+      <section class="sources" aria-labelledby="sources-h">
+        <h2 id="sources-h">Nguồn tham khảo</h2>
+        <ul>
+          @for (s of it.sources; track s.url) {
+            <li><a [href]="s.url" target="_blank" rel="noopener">{{ s.title }}</a></li>
+          }
+        </ul>
+      </section>
+
+      <div class="actions">
+        <button
+          type="button"
+          class="btn done-btn"
+          [class.done]="progress.isDone(it.id)"
+          (click)="progress.toggle(it.id)"
+        >
+          @if (progress.isDone(it.id)) { Đã hoàn thành ✓ — bấm để bỏ đánh dấu } @else { Đánh dấu
+          đã hoàn thành }
+        </button>
+        @if (!progress.storageAvailable()) {
+          <p class="warn" role="status">Tiến độ không lưu được trên trình duyệt này.</p>
+        }
+      </div>
+
+      <nav class="pager" aria-label="Bài trước / bài tiếp">
+        @if (prev(); as p) {
+          <a class="older" [routerLink]="p.path">← {{ p.title }}</a>
+        } @else { <span></span> }
+        @if (next(); as n) {
+          <a class="newer" [routerLink]="n.path">{{ n.title }} →</a>
+        }
+      </nav>
+    </article>
+
+    <aside class="toc" aria-label="Mục lục bài viết">
+      @if (it.toc.length > 0) {
+        <p class="toc-title">Mục lục</p>
+        <nav>
+          @for (h of it.toc; track h.id) {
+            <a [href]="'#' + h.id" [class.h3]="h.level >= 3">{{ h.text }}</a>
+          }
+        </nav>
+      }
+    </aside>
+  </div>
+} @else {
+  <h1>Không tìm thấy bài viết</h1>
+  <p>Đường dẫn không khớp bài nào đã xuất bản. <a routerLink="/kien-thuc">Quay lại thư viện</a>.</p>
+}

@@ -1,0 +1,66 @@
+<a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
+<header class="topbar">
+  <button
+    class="menu-btn"
+    type="button"
+    aria-label="Mở menu điều hướng"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="toggleMenu()"
+  >
+    ☰
+  </button>
+  <a class="brand" routerLink="/" (click)="closeMenu()">
+    habeo<span class="brand-tld">.dev</span>
+  </a>
+  <nav class="topnav" aria-label="Điều hướng chính">
+    @for (item of nav; track item.path) {
+      <a
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+        >{{ item.label }}</a
+      >
+    }
+  </nav>
+  <button
+    class="theme-btn"
+    type="button"
+    (click)="cycleTheme()"
+    [attr.aria-label]="'Chế độ giao diện: ' + themeIcon[theme.mode()]"
+  >
+    Giao diện: {{ themeIcon[theme.mode()] }}
+  </button>
+</header>
+
+<div class="layout" [class.menu-open]="menuOpen()">
+  @if (menuOpen()) {
+    <button class="scrim" type="button" aria-label="Đóng menu" (click)="closeMenu()"></button>
+  }
+  <aside class="sidebar" [class.open]="menuOpen()" aria-label="Danh mục">
+    <nav>
+      @for (item of nav; track item.path) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+          (click)="closeMenu()"
+          >{{ item.label }}</a
+        >
+      }
+    </nav>
+    @if (!progress.storageAvailable()) {
+      <p class="storage-warn" role="status">
+        Trình duyệt chặn lưu trữ cục bộ — bạn vẫn đọc bình thường nhưng tiến độ không được lưu
+        lại.
+      </p>
+    }
+  </aside>
+
+  <main id="main" class="content">
+    <router-outlet />
+  </main>
+</div>
+
+<footer class="footer">
+  <p>habeo.dev — Hiểu AI. Dùng đúng. Xây được. Nội dung tiếng Việt, miễn phí, có dẫn nguồn.</p>
+</footer>

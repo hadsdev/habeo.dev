@@ -1,0 +1,33 @@
+.article-grid { display: grid; grid-template-columns: minmax(0, 1fr) var(--toc-w); gap: 32px; align-items: start; }
+.crumb { font-size: 13px; color: var(--text-soft); margin: 0; }
+h1 { margin: 8px 0 10px; }
+.meta-row { display: flex; gap: 12px; align-items: center; font-size: 13px; color: var(--text-soft); }
+.badge { border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; background: var(--bg-soft); }
+.badge.ok { color: var(--ok); border-color: var(--ok); }
+.prose { margin-top: 24px; max-width: 760px; }
+.sources { margin-top: 36px; border-top: 1px solid var(--border); padding-top: 16px; }
+.sources ul { padding-left: 20px; }
+.actions { margin-top: 28px; }
+.btn { border: 1px solid var(--border); background: var(--bg-soft); color: var(--text); border-radius: 8px; padding: 10px 16px; cursor: pointer; font-size: 15px; }
+.done-btn.done { border-color: var(--ok); color: var(--ok); }
+.warn { color: var(--err); font-size: 13px; }
+.pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 36px; border-top: 1px solid var(--border); padding-top: 16px; }
+.newer { text-align: right; }
+.toc { position: sticky; top: 70px; max-height: calc(100dvh - 90px); overflow-y: auto; font-size: 14px; border-left: 1px solid var(--border); padding-left: 16px; }
+.toc-title { font-weight: 600; margin: 0 0 8px; }
+.toc nav { display: flex; flex-direction: column; gap: 4px; }
+.toc a { color: var(--text-soft); }
+.toc a:hover { color: var(--accent); }
+.toc a.h3 { padding-left: 12px; font-size: 13px; }
+:host ::ng-deep .prose pre { position: relative; }
+.copy-btn {
+  position: absolute; top: 8px; right: 8px; font-size: 12px;
+  border: 1px solid var(--border); border-radius: 6px; cursor: pointer;
+  background: var(--bg); color: var(--text-soft); padding: 3px 8px;
+}
+.copy-btn.ok { color: var(--ok); border-color: var(--ok); }
+.copy-btn.err { color: var(--err); border-color: var(--err); }
+@media (max-width: 1100px) {
+  .article-grid { grid-template-columns: minmax(0, 1fr); }
+  .toc { position: static; max-height: none; border-left: none; padding-left: 0; margin-bottom: 24px; order: -1; }
+}

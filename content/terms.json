@@ -1,0 +1,64 @@
+{
+  "terms": [
+    {
+      "term": "Token",
+      "definition": "Đơn vị text model đọc/sinh (mảnh của từ). Độ dài ngữ cảnh, tốc độ và chi phí đều tính theo token; tiếng Việt thường 'đắt' hơn tiếng Anh.",
+      "topic": "model-va-ngu-canh"
+    },
+    {
+      "term": "Context window (cửa sổ ngữ cảnh)",
+      "definition": "Toàn bộ văn bản model được tham chiếu trong một lượt sinh, gồm system prompt, lịch sử, nội dung file được đọc và cả phản hồi đang viết. Ngoài cửa sổ = model không thấy.",
+      "topic": "model-va-ngu-canh"
+    },
+    {
+      "term": "Context rot",
+      "definition": "Hiện tượng độ chính xác và khả năng nhớ đúng của model giảm khi số token trong ngữ cảnh tăng — lý do chọn lọc ngữ cảnh quan trọng ngang dung lượng cửa sổ.",
+      "topic": "model-va-ngu-canh"
+    },
+    {
+      "term": "System prompt",
+      "definition": "Phần chỉ dẫn đặt ở đầu hội thoại, định vai trò và ràng buộc hành vi. Với coding tool, file AGENTS.md/CLAUDE.md được nạp vào đây hoặc tương đương.",
+      "topic": "model-va-ngu-canh"
+    },
+    {
+      "term": "Hallucination (ảo giác)",
+      "definition": "Model sinh nội dung nghe hợp lý nhưng sai hoặc bịa (API không tồn tại, trích dẫn bịa). Giảm bằng cách nạp đúng ngữ cảnh và yêu cầu kiểm chứng bằng máy, không biến mất hẳn.",
+      "topic": "harness-va-evals"
+    },
+    {
+      "term": "Prompt injection",
+      "definition": "Tấn công nhét chỉ dẫn độc hại vào dữ liệu mà model sẽ đọc (file, web, tool result) để điều khiển hành vi nó. Phòng thủ chính: cô lập quyền hạn của bước thực thi, không phải viết prompt 'canh gác'.",
+      "topic": "an-toan-du-lieu"
+    },
+    {
+      "term": "Function calling / Tool calling",
+      "definition": "Cơ chế model xin gọi hàm theo JSON schema; ứng dụng của bạn mới là bên thực thi và chịu trách nhiệm an toàn của bước thực thi.",
+      "topic": "tool-calling-va-mcp"
+    },
+    {
+      "term": "MCP (Model Context Protocol)",
+      "definition": "Chuẩn mã nguồn mở nối ứng dụng AI với data/tools/workflow; server viết một lần, mọi client chuẩn MCP dùng được — 'USB-C cho AI'.",
+      "topic": "tool-calling-va-mcp"
+    },
+    {
+      "term": "Agent",
+      "definition": "Hệ thống trong đó model lặp vòng: quan sát → quyết định bước tiếp → gọi công cụ → đọc kết quả, cho tới khi đạt tiêu chí dừng. Năng lực nằm ở cả model lẫn harness.",
+      "topic": "tool-calling-va-mcp"
+    },
+    {
+      "term": "Harness",
+      "definition": "Lớp code quanh model quyết định nó thấy gì, làm được gì, lặp thế nào, lỗi ra sao. Cùng model, hai harness cho hai chất lượng.",
+      "topic": "harness-va-evals"
+    },
+    {
+      "term": "Evals",
+      "definition": "Bộ test lặp lại được cho chất lượng hệ AI: dataset input cố định + tiêu chí chấm (programmatic, LLM-as-judge, người) + kết quả lưu theo lần chạy để bắt hồi quy.",
+      "topic": "harness-va-evals"
+    },
+    {
+      "term": "Compaction (nén hội thoại)",
+      "definition": "Kỹ thuật tự động tóm tắt lịch sử cũ khi ngữ cảnh gần đầy, đổi độ trung thực chi tiết lấy chỗ tiếp tục làm việc.",
+      "topic": "model-va-ngu-canh"
+    }
+  ]
+}
