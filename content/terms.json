@@ -31,6 +31,21 @@
       "topic": "an-toan-du-lieu"
     },
     {
+      "term": "Skill (Agent Skill)",
+      "definition": "Bộ nhớ quy trình (Procedural Memory) được đóng gói thành thư mục gồm SKILL.md, references và scripts, chỉ được nạp vào ngữ cảnh theo nhu cầu khi tác vụ yêu cầu.",
+      "topic": "project-instructions-va-skills"
+    },
+    {
+      "term": "SDD (Spec-Driven Development)",
+      "definition": "Phương pháp phát triển phần mềm dựa trên đặc tả nghiêm ngặt: chốt thiết kế bằng văn bản, bẻ nhỏ thành các task TDD (Red-Green) 2-5 phút trước khi cho AI sinh mã.",
+      "topic": "quy-trinh-ai-coding"
+    },
+    {
+      "term": "Agent Loop (Vòng lặp Agent)",
+      "definition": "Vòng lặp tự động giữa Model và Runtime: gửi ngữ cảnh → Model yêu cầu gọi tool → Runtime chạy tool thật → nạp lại kết quả cho Model → lặp lại cho đến khi xong.",
+      "topic": "harness-va-evals"
+    },
+    {
       "term": "Function calling / Tool calling",
       "definition": "Cơ chế model xin gọi hàm theo JSON schema; ứng dụng của bạn mới là bên thực thi và chịu trách nhiệm an toàn của bước thực thi.",
       "topic": "tool-calling-va-mcp"

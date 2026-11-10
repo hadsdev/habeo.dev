@@ -13,9 +13,12 @@ steps:
   - quy-trinh-ai-coding-bon-buoc
   - lab-doc-ghi-context-du-an
   - project-instructions-va-skills
+  - huong-dan-viet-tao-skill
   - tool-calling-va-mcp
   - lab-mcp-server-local
+  - mo-hinh-sdd-trien-khai-du-an
   - harness-va-evals
+  - lab-tu-viet-mini-agent-node
 sources:
   - title: "AGENTS.md — open format"
     url: "https://agents.md/"
